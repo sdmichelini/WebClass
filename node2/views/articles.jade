@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title| Stephen Michelini. Developer.
+    link(rel='stylesheet', type='text/css', href='public/style.css')
+    link(href="https://fonts.googleapis.com/css?family=Titillium+Web|Lato",rel="stylesheet")
+  body
+    ul
+      each article in articles
+        li
+          h2| #{article.title}
+          p| #{article.content}
+          a(href='/articles/#{article.slug}')| View Article
+    form(method="POST",action='/articles')
+      | Title
+      input(type='text',name='title')
+      br
+      | Content
+      textarea(name='content')
+      br
+      | Slug
+      input(type='text',name='slug')
+      br
+      button(type='submit')| Submit Article
